@@ -1,0 +1,11 @@
+[package]
+name = "apriori-proto"
+version = "0.1.0"
+edition = "2021"
+description = "Protocol definitions and DTOs for APriori authentication and communication"
+
+[dependencies]
+# Serialization
+serde = { version = "1", features = ["derive"] }
+
+
