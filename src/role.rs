@@ -1,7 +1,19 @@
+use num_enum::{IntoPrimitive, TryFromPrimitive};
 use serde::{Deserialize, Serialize};
 
 /// User role enum
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
+#[derive(
+    Debug,
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    Hash,
+    Serialize,
+    Deserialize,
+    TryFromPrimitive,
+    IntoPrimitive
+)]
 #[repr(i32)]
 pub enum Role {
     /// Searcher: can submit and simulate bundles (unary methods only)
@@ -17,18 +29,6 @@ pub enum Role {
 }
 
 impl Role {
-    /// Parse role from i32
-    pub fn from_i32(value: i32) -> Option<Self> {
-        match value {
-            0 => Some(Role::Searcher),
-            1 => Some(Role::Builder),
-            2 => Some(Role::Relayer),
-            3 => Some(Role::Fullnode),
-            255 => Some(Role::Invalid),
-            _ => None,
-        }
-    }
-
     /// Get role name
     pub fn name(&self) -> &'static str {
         match self {

@@ -7,5 +7,6 @@ description = "Protocol definitions and DTOs for APriori authentication and comm
 [dependencies]
 # Serialization
 serde = { version = "1", features = ["derive"] }
+num_enum = "0.7"
 
 
